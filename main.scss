@@ -1,0 +1,139 @@
+/*wrapper{
+   .main{
+       .container{
+           .article{
+               .post{
+                   color:blue;
+               }
+           }
+       }
+   }
+}*/
+
+/***examples****/
+
+/*.main{
+    .wrapper &{  //using the parent element//
+        width:300px;
+        //height:400px;
+        background-color:yellow;
+    }
+}
+
+p{
+    font:{
+        family:open-size;
+        size:30px;
+        weight:500;
+    };
+
+    text:{
+        align:center;
+        transform:uppercase;
+    }
+    
+}
+
+.container{
+    background:{
+        color:green;
+    };
+}
+
+%boders{
+    border:{
+        width:5px;
+        style:solid;
+    };
+    
+}
+
+div{
+    @extend %boders;
+}
+
+.article{
+    border-color:red;
+}
+
+
+.post{
+    border-color:blue;
+}
+
+/***examples syntax****/
+/*
+$blue:blue;
+$red:red;
+$green:green;
+$black:#000000;
+$white:#ffffff;
+
+$width:300px;
+$height:500px;
+
+
+
+
+body{
+    background-color:$black;
+}
+
+div{
+    width:$width;
+    height:$height;
+    border:6px solid $green;
+}
+
+h1{
+    color:$white;
+}*/
+
+/*******examples************/
+
+//$colours:(
+//black:#000000,
+//red:red,
+//yellow:yellow
+//);
+
+//@each $key, $value in $colours{
+//    .item-#{$key}{
+//        background-color:$value;
+//        color:white;
+//    }
+//}
+
+//*/
+
+/* MIXINGS ***/
+
+//$class-name:item;
+
+//@for $i from 1 to 4{
+  //  .#{$class-name}-#{$i}{
+    //    width: 60px + $i;
+    //}
+//}
+//*/
+
+
+/* MIXINGS ***/
+
+@mixin button($color, $size){
+    width:$size;
+    height:$size/2;
+    border: 1px solid $color;
+
+    
+    @if $color == red{
+        color:#fff;
+    } @else{
+        color:$color;
+    }
+}
+
+.btn{
+    @include button(blue, 400px)
+}
+
